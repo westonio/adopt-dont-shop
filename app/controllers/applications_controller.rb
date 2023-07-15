@@ -17,7 +17,7 @@ class ApplicationsController < ApplicationController
   def show
     @application = Application.find(params[:id])
     if params[:name]
-      @pets = Pet.where("name LIKE ?", params[:name])
+      @pets = Pet.search(params[:name])
     end
   end  
 

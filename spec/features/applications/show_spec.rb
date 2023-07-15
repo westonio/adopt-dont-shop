@@ -24,13 +24,27 @@ RSpec.describe "applications show page" do
     expect(current_path).to eq("/pets/#{pet_1.id}")
   end
 
-  it "has a section to add pet a pet to the application" do
+  it "has a field for searching by pet name" do
     within(".add_pet_to_application") do
       expect(page).to have_content("Add a Pet to this Application")
       expect(page).to have_field(:name)
       fill_in "Search By Pet's Name", with: pet_3.name
       click_button "Submit"
       expect(current_path).to eq("/applications/#{app_1.id}")
+      expect(page).to have_content(pet_3.name)
+    end
+  end
+
+  it "has a button to adopt pet; when clicked pet is added to the application" do
+    within(".add_pet_to_application") do
+      fill_in "Search By Pet's Name", with: pet_3.name
+      click_button "Submit"
+      expect(page).to have_content("Adopt #{pet_3.name}")
+      click_button "Adopt #{pet_3.name}"
+      expect(current_path).to eq("/applications/#{app_1.id}")
+      expect(page).to_not have_content(pet_3.name)
+    end
+    within(".application_information") do
       expect(page).to have_content(pet_3.name)
     end
   end
