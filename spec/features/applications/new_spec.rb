@@ -27,7 +27,7 @@ RSpec.describe "Applications New Page", type: :feature do
       expect(page).to have_content("Tell us why you would make a good home:")
     end
 
-    describe "After filling out the form and clicking submit" do
+    describe "After filling out ALL fields in the form and clicking submit" do
       it 'redirects to the application show page and shows status "In Progress"' do
         within("#new_application") do
           fill_in :name, with: "Michelle Visage"
@@ -37,12 +37,21 @@ RSpec.describe "Applications New Page", type: :feature do
           fill_in :zip_code, with: "80220"
           fill_in :description, with: "I would be a great home because I am rich and would take the pet(s) with me everywhere I go."
         end
-        
-        click_button "Submit"
-
+    
+        click_button "Save"
+    
         expect(page).to have_content("Status: In Progress")
         expect(page).to have_content("Name: Michelle Visage")
         expect(page).to have_content("I would be a great home because I am rich and would take the pet(s) with me everywhere I go.")
+      end
+    end
+    
+    describe "Invalid / incomplete submission of the form" do
+      it 'redirects to "applications/new"' do
+        click_button "Save"
+    
+        expect(page).to have_current_path("/applications/new")
+        expect(page).to have_content("Error: Name can't be blank, Street address can't be blank, City can't be blank, State can't be blank, Zip code can't be blank, Description can't be blank")
       end
     end
   end
