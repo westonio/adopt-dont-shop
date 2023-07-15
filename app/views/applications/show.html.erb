@@ -1,8 +1,11 @@
-<%= "Name: #{@application.name}" %><br>
+<h3>Application Details:</h3>
+<%= "Name: #{@application.name}" %>
 <%= "Address: #{@application.full_address}" %><br>
 <%= "Description: #{@application.description}" %><br>
 <%= "Status: #{@application.status}" %><br>
 <h3>Pets:</h3>
-<% @application.pets.each do |pet| %>
-  <%= link_to pet.name, "/pets/#{pet.id}" %><br>
-<% end %>
+<div class="list">
+  <% @application.pets.each do |pet| %>
+    <%= link_to pet.name, "/pets/#{pet.id}" %><br>
+  <% end %>
+</div>
