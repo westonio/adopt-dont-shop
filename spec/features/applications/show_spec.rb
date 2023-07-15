@@ -13,7 +13,6 @@ RSpec.describe "applications show page" do
   end
 
   it "displays application information" do
-    save_and_open_page
     expect(page).to have_content("#{app_1.name}")
     expect(page).to have_content("466 Birch Road Birmingham, Alabama, 35057")
     expect(page).to have_content("#{app_1.description}")
