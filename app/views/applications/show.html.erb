@@ -1,13 +1,15 @@
 <h3>Application Details:</h3>
-<%= "Name: #{@application.name}" %>
-<%= "Address: #{@application.full_address}" %><br>
-<%= "Description: #{@application.description}" %><br>
-<%= "Status: #{@application.status}" %><br>
-<h3>Pets:</h3>
-<div class="list">
-  <% @application.pets.each do |pet| %>
-    <%= link_to pet.name, "/pets/#{pet.id}" %><br>
-  <% end %>
+<div class="application_information">
+  <%= "Name: #{@application.name}" %>
+  <%= "Address: #{@application.full_address}" %><br>
+  <%= "Description: #{@application.description}" %><br>
+  <%= "Status: #{@application.status}" %><br>
+  <h3>Pets:</h3>
+  <div class="list">
+    <% @application.pets.each do |pet| %>
+      <%= link_to pet.name, "/pets/#{pet.id}" %><br>
+    <% end %>
+  </div>
 </div>
 <div class="add_pet_to_application">
   <h3>Add a Pet to this Application</h3>
@@ -19,7 +21,8 @@
   <% if @pets != nil %>
     <div class="list">
       <% @pets.each do |pet| %>
-        <%= pet.name %><br>
+        <%= pet.name %>
+        <%= button_to "Adopt #{pet.name}", "/pet_applications", method: :post, params: { :application_id => @application.id, :pet_id => pet.id } %><br>
       <% end %>
     </div>
   <% end %>
