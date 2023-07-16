@@ -63,7 +63,6 @@ RSpec.describe "applications show page" do
         within(".add_pet_to_application") do
           fill_in "Search By Pet's Name", with: pet_3.name
           click_button "Search"
-          expect(page).to have_content("Adopt #{pet_3.name}")
           click_button "Adopt #{pet_3.name}"
         end
         
@@ -76,24 +75,42 @@ RSpec.describe "applications show page" do
         within(".add_pet_to_application") do
           fill_in "Search By Pet's Name", with: pet_3.name
           click_button "Search"
-          expect(page).to have_content("Adopt #{pet_3.name}")
           click_button "Adopt #{pet_3.name}"
         end
       
         expect(page).to have_button("Submit Application")
       end
 
-      it 'redirects show page with updated description and status' do
-        visit "/applications/#{app_2.id}"
-
-        within(".add_pet_to_application") do
-          fill_in "Search By Pet's Name", with: pet_3.name
-          click_button "Search"
-          expect(page).to have_content("Adopt #{pet_3.name}")
-          click_button "Adopt #{pet_3.name}"
+      it 'redirects show page with updated description' do
+        #visiting app_1 (already has two pets added)
+        within(".application_information") do
+          fill_in :description, with: "New description"
+          click_button("Submit Application")
         end
 
+        expect(current_path).to eq("/applications/#{app_1.id}")
+        expect(page).to have_content("New description")
+      end
 
+      it 'shows an indicator that the application is "Pending"' do
+        click_button("Submit Application")
+
+        expect(page).to have_content("Status: Pending")
+      end
+
+      it 'redirects and shows the pets names' do
+        #visiting app_1 (already has two pets added)
+        click_button("Submit Application")
+
+        expect(page).to have_content(pet_1.name)
+        expect(page).to have_content(pet_2.name)
+      end
+
+      it 'redirects and no longer shows the bar to search for pets' do
+        #visiting app_1 (already has two pets added)
+        click_button("Submit Application")
+
+        expect(page).to_not have_content("Add a Pet to this Application")
       end
     end
   end
