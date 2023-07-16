@@ -2,7 +2,7 @@
 
 <% @veterinarians.each do |vet| %>
   <div class="list" id="vet-<%= vet.id %>">
-    <h3><%= vet.name %></h3>
+    <h3><%= link_to vet.name, "/veterinarians/#{vet.id}" %></h3>
     <p>Rating: <%= vet.review_rating %></p>
     <p>Practice: <%= vet.office_name %></p>
     <%= link_to "Edit #{vet.name}", "/veterinarians/#{vet.id}/edit" %>

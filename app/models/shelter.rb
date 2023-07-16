@@ -36,4 +36,9 @@ class Shelter < ApplicationRecord
     joins(:pets => {:applications => :pet_applications}).where(applications: {status: "Pending"})
   end
 
+  def self.order_by_name_desc
+    sql = "SELECT * FROM shelters ORDER BY name DESC;"
+    ActiveRecord::Base.connection.execute(sql)
+  end
+
 end
