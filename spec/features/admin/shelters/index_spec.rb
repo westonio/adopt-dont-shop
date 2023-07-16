@@ -17,7 +17,10 @@ RSpec.describe "admin shelters index page" do
     visit "/admin/shelters"
   end
   
-  
+  it "shows all Shelters in the system listed in reverse alphabetical order by name" do
+    expect(shelter_2.name).to appear_before(shelter_3.name)
+    expect(shelter_3.name).to appear_before(shelter_1.name)
+  end
   
   it "has a section for Shelters with Pending Applications" do
     within(".shelters_with_pending_applications") do
