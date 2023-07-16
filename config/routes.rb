@@ -44,4 +44,8 @@ Rails.application.routes.draw do
 
   post "/pet_applications", to: "pet_applications#create"
 
+  # get '/admin/shelters', to: 'admin_shelters#index' this is handrolling but i wanted to learn how to use namespacing and resources
+  namespace :admin do 
+    resources :shelters, only: [:index]
+  end
 end
