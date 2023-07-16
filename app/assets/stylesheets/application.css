@@ -35,10 +35,14 @@ body {
   line-height: 150%;
 }
 
-.list p, .list a {
-  margin-left: 10px;
+.list p, .list a, .application_information p {
+  margin-left: 20px;
 }
 
+.application_information h3, h4 {
+  padding-top: 10px;
+  padding-left: 10px;
+}
 .sortSearch {
   padding-bottom: 40px;
 }
@@ -75,3 +79,4 @@ a:hover {
   text-decoration: underline;
   color: #79B4A9
 }
+
