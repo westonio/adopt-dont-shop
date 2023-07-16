@@ -7,6 +7,7 @@ RSpec.describe "applications show page" do
   let!(:pet_1) { shelter1.pets.create!(name: "Matt", age: 14, breed: "Cat", adoptable: true) }
   let!(:pet_2) { shelter1.pets.create!(name: "Pog", age: 14, breed: "Dog", adoptable: true) }
   let!(:pet_3) { shelter1.pets.create!(name: "Anetra", age: 3, breed: "Leopard Gecko", adoptable: true) }
+  let!(:pet_4) { shelter1.pets.create!(name: "Alaska", age: 6, breed: "Cat", adoptable: true) }
   let!(:pet_app_1) { PetApplication.create!(pet_id: pet_1.id, application_id: app_1.id) } 
   let!(:pet_app_2) { PetApplication.create!(pet_id: pet_2.id, application_id: app_1.id) } 
   
@@ -113,5 +114,21 @@ RSpec.describe "applications show page" do
         expect(page).to_not have_content("Add a Pet to this Application")
       end
     end
+  end
+
+  it "returns partial matches in pet name search" do
+    fill_in "Search By Pet's Name", with: "a"
+    click_button "Search"
+    expect(page).to have_content(pet_3.name)
+    expect(page).to have_content(pet_4.name)
+  end
+
+  it "is not case sensitive" do
+    fill_in "Search By Pet's Name", with: "ANETRA"
+    click_button "Search"
+    expect(page).to have_content(pet_3.name)
+    fill_in "Search By Pet's Name", with: "anetra"
+    click_button "Search"
+    expect(page).to have_content(pet_3.name)
   end
 end
