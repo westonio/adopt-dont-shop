@@ -15,7 +15,7 @@ class Application < ApplicationRecord
   end
 
   def find_pet_app(id)
-    self.pet_applications.where("pet_id = #{id}").first
+    pet_applications.where("pet_id = #{id}").first
   end
 end
 
