@@ -14,5 +14,8 @@ class Application < ApplicationRecord
     street_address + " " + city + ", " + state + ", " + zip_code
   end
 
+  def find_pet_app(id)
+    self.pet_applications.where("pet_id = #{id}").first
+  end
 end
 
