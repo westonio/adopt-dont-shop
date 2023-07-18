@@ -39,7 +39,7 @@ body {
   margin-left: 20px;
 }
 
-.list form, #approved-pet{
+.list form, #approved-pet, #rejected-pet {
   display: inline;
 }
 

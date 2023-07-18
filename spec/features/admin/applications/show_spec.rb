@@ -46,4 +46,36 @@ RSpec.describe "Admin application show page ('/admin/applications/:id')", type: 
       expect("Approved!").to appear_before(pet_2.name)
     end
   end
+
+  context "Rejecting a pet" do
+    it 'has a a button to Reject the application for each pet' do
+      expect(page).to have_button("Reject")
+      expect(page).to have_css("#reject-#{pet_1.id}")
+      expect(page).to have_css("#reject-#{pet_2.id}")
+
+      expect(page).to_not have_content(pet_3.name)
+      expect(page).to_not have_content(pet_4.name)
+    end
+
+    it "redirects to the admin show page, after being clicked" do
+      find("#reject-#{pet_1.id}").click
+
+      expect(current_path).to eq("/admin/applications/#{app_1.id}")
+    end
+
+    it "shows no approval button after being clicked" do
+      find("#reject-#{pet_1.id}").click
+
+      expect(page).to_not have_css("#reject-#{pet_1.id}")
+      expect(page).to have_css("#reject-#{pet_2.id}")
+    end
+
+    it "shows a message that the pet has been Rejectd" do
+      find("#reject-#{pet_1.id}").click
+
+      expect(page).to have_content("Rejected")
+      expect(pet_1.name).to appear_before("Rejected")
+      expect("Rejected").to appear_before(pet_2.name)
+    end
+  end
 end
