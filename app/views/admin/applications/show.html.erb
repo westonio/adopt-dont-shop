@@ -1,0 +1,29 @@
+<div class="application_information">
+  <h3>Application Details:</h3>
+  <p><%= "Name: #{@application.name}" %></p>
+  <p><%= "Address: #{@application.full_address}" %></p>
+  <p><%= "Description: #{@application.description}" %></p>
+  <p><%= "Status: #{@application.status}" %></p>
+  
+  <h4>Pet(s) to adopt:</h4>
+  <div class="list">
+    <% "Pet(s) not yet selected. " if @application.pets.empty? %>
+    
+    <% if @application.status == "Pending" %>
+      <% @application.pets.each do |pet| %>
+        <div>
+          <%= link_to pet.name, "/pets/#{pet.id}" %>
+          <% if @application.find_pet_app(pet.id).status == "Pending" %>
+            <%= button_to "Approve", "/admin/applications/#{pet.id}", method: :patch, id: "approve-#{pet.id}", params: { application_id: @application.id, pet_id: pet.id, status: "Accepted" } %>
+          <% elsif @application.find_pet_app(pet.id).status == "Accepted" %>
+            <p id="approved-pet">Approved!</p>
+          <% end %>
+        </div><br>
+      <% end %>
+    <% else %>
+      <% @application.pets.each do |pet| %>
+        <%= link_to pet.name, "/pets/#{pet.id}" %><br>
+      <% end %>
+    <% end %>
+  </div>
+</div>

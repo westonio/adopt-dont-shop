@@ -47,5 +47,8 @@ Rails.application.routes.draw do
   # get '/admin/shelters', to: 'admin_shelters#index' this is handrolling but i wanted to learn how to use namespacing and resources
   namespace :admin do 
     resources :shelters, only: [:index]
+    resources :applications, only: [:show, :update]
   end
+
+  patch "/admin/applications/:id", to: "admin/applications#update"
 end

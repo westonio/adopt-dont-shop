@@ -39,6 +39,22 @@ body {
   margin-left: 20px;
 }
 
+.list form, #approved-pet{
+  display: inline;
+}
+
+#approved-pet {
+  font-style: italic;
+  color:green;
+  font-weight: bold;
+}
+
+#rejected-pet {
+  font-style: italic;
+  color:red;
+  font-weight: bold;
+}
+
 .application_information h3, h4 {
   padding-top: 10px;
   padding-left: 10px;
