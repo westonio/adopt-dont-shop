@@ -15,8 +15,11 @@
           <%= link_to pet.name, "/pets/#{pet.id}" %>
           <% if @application.find_pet_app(pet.id).status == "Pending" %>
             <%= button_to "Approve", "/admin/applications/#{pet.id}", method: :patch, id: "approve-#{pet.id}", params: { application_id: @application.id, pet_id: pet.id, status: "Accepted" } %>
+            <%= button_to "Reject", "/admin/applications/#{pet.id}", method: :patch, id: "reject-#{pet.id}", params: { application_id: @application.id, pet_id: pet.id, status: "Rejected" } %>
           <% elsif @application.find_pet_app(pet.id).status == "Accepted" %>
             <p id="approved-pet">Approved!</p>
+          <% else #if status "Rejected" %>
+            <p id="rejected-pet">Rejected</p>
           <% end %>
         </div><br>
       <% end %>
