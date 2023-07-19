@@ -1,32 +1,4 @@
-<div class="application_information">
-  <h3>Application Details:</h3>
-  <p><%= "Name: #{@application.name}" %></p>
-  <p><%= "Address: #{@application.full_address}" %></p>
-  <p><%= "Description: #{@application.description}" %></p>
-  <p><%= "Status: #{@application.status}" %></p>
-  <h4>Pet(s) to adopt:</h4>
-  <div class="list">
-    <% if @application.pets.empty? %>
-      <p><em>Pet(s) not yet selected. </em></p>
-    <% else %>
-      <%# Show pets in application %>
-      <% @application.pets.each do |pet| %>
-        <%= link_to pet.name, "/pets/#{pet.id}" %><br>
-      <% end %>
-      <%# Update description and submit application %>
-      <% if @application.status == "In Progress" %>
-        <%= form_with url: "/applications", method: :patch, local: :true do |form| %>
-          <br/><%= form.label :description, "Please add details on why you would be a good owner for the above pet(s):" %><br/>
-          <%= form.text_area :description, value: @application.description, size: "50x5" %><br/>
-          <%= form.hidden_field :status, value: "Pending" %>
-          <%= form.hidden_field :application_id, value: @application.id %>
-
-          <%= form.submit "Submit Application"%>
-        <% end %>
-      <% end %>
-    <% end %> 
-  </div>
-</div>
+<%= render partial: "shared/applications/show_content", locals: { admin: false } %>
 
 <% if @application.status == "In Progress" %>
   <div class="add_pet_to_application">

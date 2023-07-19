@@ -52,7 +52,7 @@ RSpec.describe "applications show page" do
   end
 
   describe "submitting an application" do
-    it 'has no Submit Application button until buttons are added' do
+    it 'has no Submit Application button until pets are added' do
       visit "/applications/#{app_2.id}"
       expect(page).to_not have_button("Submit Application")
     end
