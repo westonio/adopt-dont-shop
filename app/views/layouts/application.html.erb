@@ -12,11 +12,7 @@
   </head>
 
   <body>
-  <% flash.each do |type, msg| %>
-    <div>
-      <%= msg %>
-    </div>
-  <% end %>
+    <%= render "shared/flash" %>
     <nav>
       <ul class="navLinks">
         <li><%= link_to "Pets", "/pets" %></li> 
