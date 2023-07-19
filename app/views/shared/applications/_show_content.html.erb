@@ -1,0 +1,41 @@
+<div class="application_information">
+  <h3>Application Details:</h3>
+  <p><%= "Name: #{@application.name}" %></p>
+  <p><%= "Address: #{@application.full_address}" %></p>
+  <p><%= "Description: #{@application.description}" %></p>
+  <p><%= "Status: #{@application.status}" %></p>
+  <h4>Pet(s) to adopt:</h4>
+  <div class="list">
+    <% '<p><em>Pet(s) not yet selected. </em></p>' if @application.pets.empty? %>
+
+    <% if local_assigns[:admin] && @application.status == "Pending" %>
+      <% @application.pets.each do |pet| %>
+        <div>
+          <%= link_to pet.name, "/pets/#{pet.id}" %>
+          <% if @application.find_pet_app(pet.id).status == "Pending" %>
+            <%= button_to "Approve", "/admin/applications/#{pet.id}", method: :patch, id: "approve-#{pet.id}", params: { application_id: @application.id, pet_id: pet.id, status: "Accepted" } %>
+            <%= button_to "Reject", "/admin/applications/#{pet.id}", method: :patch, id: "reject-#{pet.id}", params: { application_id: @application.id, pet_id: pet.id, status: "Rejected" } %>
+          <% elsif @application.find_pet_app(pet.id).status == "Accepted" %>
+            <p id="approved-pet">Approved!</p>
+          <% else #if status "Rejected" %>
+            <p id="rejected-pet">Rejected</p>
+          <% end %>
+        </div><br>
+      <% end %>
+    <% else #if app not pending or user is visitor %>
+      <% @application.pets.each do |pet| %>
+        <%= link_to pet.name, "/pets/#{pet.id}" %><br>
+      <% end %>
+      <% if @application.status == "In Progress" && !@application.pets.empty? %>
+        <%= form_with url: "/applications", method: :patch, local: :true do |form| %>
+          <br/><%= form.label :description, "Please add details on why you would be a good owner for the above pet(s):" %><br/>
+          <%= form.text_area :description, value: @application.description, size: "50x5" %><br/>
+          <%= form.hidden_field :status, value: "Pending" %>
+          <%= form.hidden_field :application_id, value: @application.id %>
+
+          <%= form.submit "Submit Application"%>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
