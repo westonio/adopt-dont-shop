@@ -11,7 +11,7 @@
 ### Languages, Frameworks, and Tools used
 - **Building:** Ruby, Rails, HTML, CSS, and some SQL
 - **Testing:** RSpec, Capybara, ShouldaMatchers
-- **Database** PostgreSQL
+- **Database:** PostgreSQL
 - **Queries:** Postico, Rails Console, Rails Database Console
 - **Consuming API:** Faraday HTTP client library
 
