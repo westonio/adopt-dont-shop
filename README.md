@@ -1,36 +1,36 @@
-# Adopt, don't Shop
+# Adopt, Don't Shop
 
-This is a paired project used in Turing School's Backend Program Module 2.
+[Project Management Board](https://github.com/users/westonio/projects/5)
+[View Project as Applicant with Render](https://adopt-dont-shop-z781.onrender.com)
+> *Please Note: The deployed app is setup to disconnect from the server when not being used, and may take a few minutes to load initially.*
 
-## Learning Goals
+## Project Overview
+*"Adopt, Don't Shop"* is a comprehensive rails application developed as a paired project. This is a platform that facilitates pet adoption, enabling users to apply to adopt pets while administrators can manage applications and pet approvals. The project emphasizes CRUD functionality, database manipulation, and MVC structure, and showcases features like application creation, pet search, and approval or rejection of applications. 
 
-In this project, students will build upon the code in this repo to create a Pet Adoption Platform. Users will be able to apply to adopt pets, and Admins will be able to approve or reject applications and see statistics for the Shelters, Pets, and Applications in the system.
+---
+### Languages, Frameworks, and Tools used
+- **Building:** Ruby, Rails, HTML, CSS, and some SQL
+- **Testing:** RSpec, Capybara, ShouldaMatchers
+- **Database** PostgreSQL
+- **Queries:** Postico, Rails Console, Rails Database Console
+- **Consuming API:** Faraday HTTP client library
 
-- Build out CRUD functionality for a many to many relationship
-- Use ActiveRecord to write queries that join multiple tables of data together
-- Use MVC to organize code effectively, limiting the amount of logic included in views and controllers
-- Validate models and handle sad paths for invalid data input
-- Use flash messages to give feedback to the user
-- Use partials in views
-- Use `within` blocks in tests
-- Track user stories using GitHub Projects
-- Deploy your application to the internet
+### Project Challenges:
+- I felt most nervous about figuring out how to implement flash alerts, and definitely feel that those concerns were not justified as it was fairly straightforward and easy. This just brings to light that I cannot let things that make me nervous hold me back from taking action, as they are likely less scary than they appear.
+- Working with another partner presented unique challenges mainly when a feature we were working on was dependent on the completion and successful operation of a feature the other was working on. However, this encouraged us to collaborate and gave us more opportunities to learn from eachother.
 
-## Requirements
-
-- Project must use Rails 7.0.x, Ruby 3.2.2, and PostgreSQL
-- Use of `resources` on this project is not permitted
-- Use of scaffolding on this project is not permitted
-- Students wanting to use any extra gems on this project must first get permission from your instructors
-    - Pre-approved gems are `pry, simplecov, capybara, rspec-rails, shoulda-matchers, faker, factory_bot_rails, orderly, launchy`
-
-## Project Phases
-
-1. [Set Up](./doc/set_up.md)
-1. [User Stories](./doc/user_stories.md)
-1. [Evaluation](./doc/evaluation.md)
-
-## Check In
-
-This project will have one Check In. During your Check In, you should be prepared to review your database schema for the many to many relationship, your deployment to the internet, and your GitHub Projects board.
-
+### Accomplishments
+- Leveraged use of partials for code reusability, flash messages for improved user communication, and insensitive search for enhanced search capabilities, demonstrating strong technical skills and attention to user needs.
+- Utilized agile development methodologies to collaborate with a project partner, resulting in timely and successful project delivery.
+- Implemented an administrative function, enabling the acceptance or rejection of pet adoption applications through an admin view.
+- Other General Outcomes:
+    - Built out CRUD functionality for a many to many relationship
+    - Used ActiveRecord to write queries that join multiple tables of data together
+    - Used MVC to organize code effectively, limiting the amount of logic included in views and controllers
+    - Validated models and handled sad paths for invalid data input
+    - Used `within` blocks in tests
+    - Tracked user stories using GitHub Projects
+    - Deployed the application to the internet
+ 
+### Other Project Contributor: 
+- [Andi Lovetto](https://github.com/andilovetto)
