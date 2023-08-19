@@ -13,7 +13,6 @@
 - **Testing:** RSpec, Capybara, ShouldaMatchers
 - **Database:** PostgreSQL
 - **Queries:** Postico, Rails Console, Rails Database Console
-- **Consuming API:** Faraday HTTP client library
 
 ### Project Challenges:
 - I felt most nervous about figuring out how to implement flash alerts, and definitely feel that those concerns were not justified as it was fairly straightforward and easy. This just brings to light that I cannot let things that make me nervous hold me back from taking action, as they are likely less scary than they appear.
