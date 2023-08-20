@@ -2,7 +2,7 @@
 
 [Project Management Board](https://github.com/users/westonio/projects/5)
 [View Project as Applicant with Render](https://adopt-dont-shop-z781.onrender.com)
-> *Please Note: The deployed app is setup to disconnect from the server when not being used, and may take a few minutes to load initially.*
+> *Please Note: The deployed app is set up to disconnect from the server when not being used, and may take a few minutes to load initially.*
 
 ## Project Overview
 *"Adopt, Don't Shop"* is a comprehensive rails application developed as a paired project. This is a platform that facilitates pet adoption, enabling users to apply to adopt pets while administrators can manage applications and pet approvals. The project emphasizes CRUD functionality, database manipulation, and MVC structure, and showcases features like application creation, pet search, and approval or rejection of applications. 
