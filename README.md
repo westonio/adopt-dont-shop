@@ -16,14 +16,14 @@
 
 ### Project Challenges:
 - I felt most nervous about figuring out how to implement flash alerts, and definitely feel that those concerns were not justified as it was fairly straightforward and easy. This just brings to light that I cannot let things that make me nervous hold me back from taking action, as they are likely less scary than they appear.
-- Working with another partner presented unique challenges mainly when a feature we were working on was dependent on the completion and successful operation of a feature the other was working on. However, this encouraged us to collaborate and gave us more opportunities to learn from eachother.
+- Working with another partner presented unique challenges mainly when a feature we were working on was dependent on the completion and successful operation of a feature the other was working on. However, this encouraged us to collaborate and gave us more opportunities to learn from each other.
 
 ### Accomplishments
 - Leveraged use of partials for code reusability, flash messages for improved user communication, and insensitive search for enhanced search capabilities, demonstrating strong technical skills and attention to user needs.
 - Utilized agile development methodologies to collaborate with a project partner, resulting in timely and successful project delivery.
 - Implemented an administrative function, enabling the acceptance or rejection of pet adoption applications through an admin view.
 - Other General Outcomes:
-    - Built out CRUD functionality for a many to many relationship
+    - Built out CRUD functionality for a many-to-many relationship
     - Used ActiveRecord to write queries that join multiple tables of data together
     - Used MVC to organize code effectively, limiting the amount of logic included in views and controllers
     - Validated models and handled sad paths for invalid data input
